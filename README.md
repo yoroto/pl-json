@@ -1,1 +1,3 @@
-# JSON parser for SICStus Prolog
+# pl-json
+
+A JSON parser for SICStus Prolog
