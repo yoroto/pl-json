@@ -80,9 +80,10 @@ nm_exp1([]) --> [].
 
 string([]) --> [0'\x22\], !.
 
-string(EscapedChar) -->
+string([EscapedChar|T]) -->
     [0'\x5C\],!,
-    escape_char(EscapedChar).
+    escape_char(EscapedChar),
+    string(T).
 
 string([H|T]) -->
     [H],
@@ -98,12 +99,12 @@ escape_char( 0'\x0D\ ) --> [0'\x72\]. %r
 escape_char( 0'\x09\ ) --> [0'\x74\]. %t
 
 escape_char( Code ) -->
+        "u",
         hex_digit_char( H1 ),
         hex_digit_char( H2 ),
         hex_digit_char( H3 ),
         hex_digit_char( H4 ),
-        !,
-        { Code is (((H1 << 4 + H2) << 4 + H3) << + H4) }.
+        { Code is (((H1 << 4 + H2) << 4 + H3) << 4 + H4) }.
 
 hex_digit_char( 0 ) --> "0".
 hex_digit_char( 1 ) --> "1".
