@@ -135,10 +135,9 @@ array([H|T]) -->
 array([H|T]) -->
     json(H), array(T).
 
-pair(Pair) -->
+pair(pair(Name, Value)) -->
     spaces, pair_name(Codes), ":", json(Value),
-    { atom_codes(Name, Codes),
-      Pair =.. [Name, Value]}.
+    { atom_codes(Name, Codes) }.
 
 pair_name(Name) --> """", string(Name), spaces.
 
