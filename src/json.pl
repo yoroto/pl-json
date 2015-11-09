@@ -3,7 +3,7 @@
 json_parse( Chars, Json ) :-
     json_parse( Chars, Json, [] ).
 
-json_parse( Chars, Json, Options ) :-
+json_parse( Chars, Json, _Options ) :-
     json(Json, Chars, _).
 
 json(Json) -->
