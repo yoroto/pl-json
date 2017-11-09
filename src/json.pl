@@ -211,7 +211,7 @@ check_string([Char]) --> [Char],!.
 check_string(String, [Char|_],_) :-
    cur_line(LineNr),
    format(user_error,'! Error on line ~w: expecting ~s obtained ~s~n',[LineNr,String,[Char]]),
-   trace,
+   %trace,
    fail.
 
 minus( 0'- ).
