@@ -9,7 +9,7 @@
 % parse a JSON file
 json_parse_file(File, Json) :-
    read_file(File,Codes),
-   format('Read:~n~s~n',[Codes]),
+   %format('Read:~n~s~n',[Codes]),
    json_parse(Codes,Json).
 
 read_file(Filename,Codes) :-

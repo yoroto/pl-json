@@ -83,4 +83,12 @@ test(nested_object) :-
                pair('Date',obj([pair('Year',1991),
                pair(month,string("July")),pair('Day',12)]))]))])).
 
+test(read_from_file) :-
+    json_parse_file('scheduler_t1.json', Json),
+    Json == obj([pair(transitionList,[
+    obj([pair(name,string("$initialise_machine")),
+    pair(parameters,[])])])]).
+test(read_from_file2) :-
+    json_parse_file('scheduler_t2.json', Json),
+    Json = obj([pair(transitionList,_)]).
 :- end_tests(json).

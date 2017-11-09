@@ -1,0 +1,88 @@
+{
+  "transitionList": [
+   {
+   "name": "$initialise_machine",
+   "parameters": [
+     ]
+   },
+   {
+   "name": "new",
+   "parameters": [
+        "PID3"
+     ]
+   },
+   {
+   "name": "new",
+   "parameters": [
+        "PID2"
+     ]
+   },
+   {
+   "name": "new",
+   "parameters": [
+        "PID1"
+     ]
+   },
+   {
+   "name": "ready",
+   "parameters": [
+        "PID2"
+     ]
+   },
+   {
+   "name": "ready",
+   "parameters": [
+        "PID3"
+     ]
+   },
+   {
+   "name": "swap",
+   "parameters": [
+     ]
+   },
+   {
+   "name": "nr_ready",
+   "parameters": [
+     ]
+   },
+   {
+   "name": "ready",
+   "parameters": [
+        "PID1"
+     ]
+   },
+   {
+   "name": "swap",
+   "parameters": [
+     ]
+   },
+   {
+   "name": "ready",
+   "parameters": [
+        "PID2"
+     ]
+   },
+   {
+   "name": "swap",
+   "parameters": [
+     ]
+   },
+   {
+   "name": "del",
+   "parameters": [
+        "PID3"
+     ]
+   },
+   {
+   "name": "del",
+   "parameters": [
+        "PID1"
+     ]
+   },
+   {
+   "name": "swap",
+   "parameters": [
+     ]
+   }
+  ]
+ }
