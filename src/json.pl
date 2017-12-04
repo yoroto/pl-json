@@ -181,28 +181,29 @@ array1([H|T]) -->
     array1(T).
 array1([]) --> [], {print_info(empty_array)}.
 
-pair(pair(Name, Value)) -->
+pair(pair(Name, Value),Optional) -->
     spaces,
-    pair_name(Codes),
+    ({Optional=optional} -> opt_pair_name(Codes) ; pair_name(Codes)),
     check_string(":"),
     { atom_codes(Name, Codes) },
     {print_info(pair_value_for(Name))},
     json(Value),
     {print_info(found_value_vor(Name,Value))}.
 
+opt_pair_name(Name) --> """", string(Name), spaces.
 pair_name(Name) --> check_string(""""), string(Name), spaces.
 
 
 pairs(List) --> ws,!,pairs(List).
 pairs([H|T]) -->
-    pair(H), !,
+    pair(H,optional), !,
     pairs1(T).
 pairs([]) --> [], {print_info(empty_pairs)}.
 
 pairs1(List) --> ws,!,pairs1(List).
 pairs1([H|T]) -->
     ",", !,
-    pair(H),!,
+    pair(H,required),!,
     pairs1(T).
 pairs1([]) --> [], {print_info(end_pairs)}.
 
